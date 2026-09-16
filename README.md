@@ -1,3 +1,13 @@
+# Sunlit Valley M and V edition
+
+Modpack modified for usage for me and my friends
+
+AI has been used in assisting in this project only, not the original one
+
+
+
+# Orignial readme text:
+
 # Society: Sunlit Valley
 **Society: Sunlit Valley** is a farming commerce Minecraft modpack in the style of games like Stardew Valley and Harvest moon. As you progress, you'll use coins to purchase new items, upgrade your gear, and gain tools to make money even faster.
 
