@@ -1,33 +1,36 @@
-# Sunlit Valley M and V edition
+# Sunlit Valley M and V Edition
 
-Modpack modified for usage for me and my friends
+This is a personal, friend-focused modification of **Society: Sunlit Valley**,
+a farming-and-commerce Minecraft modpack inspired by Stardew Valley and Harvest
+Moon. Progress through the pack by earning coins, purchasing items, upgrading
+gear, and unlocking tools that improve your farm and business.
 
-AI has been used in assisting in this project only, not the original one
+For local setup, Pakku workflow, and validation commands, see
+[DEVELOPMENT.md](DEVELOPMENT.md).
 
+## Upstream project
 
+This repository is based on
+[Society: Sunlit Valley](https://github.com/Chakyl/society-sunlit-valley).
+The upstream project is developing Sunlit Valley 2.0 and is not accepting
+issues or contributions for 1.0. If you would like to discuss an upstream
+change, use the Discord [#contributor-chat](https://discord.com/channels/1322431115339894925/1345941546519891988)
+channel.
 
-# Orignial readme text:
+## Upstream contribution guidance
 
-# Society: Sunlit Valley
-**Society: Sunlit Valley** is a farming commerce Minecraft modpack in the style of games like Stardew Valley and Harvest moon. As you progress, you'll use coins to purchase new items, upgrade your gear, and gain tools to make money even faster.
+For contributions to the upstream repository:
 
-## Contribution Guide
-**Sunlit Valley 2.0  is in production, so issues and contributions on 1.0 are currently closed! Please get in contact on the Discord's [#contributor-chat](https://discord.com/channels/1322431115339894925/1345941546519891988) channel if you'd like to make PR for 1.0.**
-- Pull requests (PR) can be made in the [society-sunlit-valley repo](https://github.com/Chakyl/society-sunlit-valley)
-- PRs should target the next update branch, if it exists not `master`. Check in with Chakyl if you don't know which branch is next.
-- PRs should include a list of changelog items in a similar format as [here](https://github.com/Chakyl/society-sunlit-valley/blob/master/config/fancymenu/assets/changelog.markdown?plain=1)
-## Easily accepted contributions
-- **Documentation**: Quest related work, tips, new tooltips, etc. A large exception is any information that's intended to be hidden (ask if you don't know!)
-- **Minor touchups**: Textures, typos, bugfixes
-- **Tag/recipe cleanup**: Via romana road tags, sawmill recipes, etcetera chisel/hammering, compacting drawer recipes, etc
-## Likely to be contested/tweaked
-- **Balance changes**: Value changes/additions, significant recipe changes, trade prices
-- **Large code refactors**: These just take more time to review and verify
-- **Translations**: It takes time to find a native reader of a translation language that is willing to review translations, there's no way around that.
-## Discuss before starting (to avoid wasting your time)
-- **Content additions/reworks**: New mechanics or significant changes to current mechanics (e.g, putting veggies in a dehydrator). Discuss these beforehand to avoid working on things that are already actively in dev or things that won't be added
-- **Mod additions**:  Mods will have to meet a very high threshold to be added to the pack at this point in development
-## Automatically denied contributions
-- **License violating work**: Any work that breaks the license of another project will automatically be denied. This includes but is not limited to copying assets or code from an ARR mod without express permission.
-- **AI generated work/assets**: Any work using generative AI will automatically be denied.
-- **Machine Translations**: Translations have a high bar for being merged. I believe no translation is better than a translation that is unvetted, misleading, or even incorrect.
+- Target its next update branch rather than `master` when one exists. Ask
+  Chakyl if the appropriate branch is unclear.
+- Include changelog items in the format used by the
+  [upstream changelog](https://github.com/Chakyl/society-sunlit-valley/blob/master/config/fancymenu/assets/changelog.markdown?plain=1).
+- Documentation, minor texture/typo/bug fixes, and tag or recipe cleanup are
+  generally the easiest contributions to accept.
+- Discuss balance changes, larger refactors, translations, content reworks,
+  and new mods before beginning work.
+- Do not submit work that violates another project's license, uses
+  AI-generated assets, or uses unreviewed machine translations.
+
+AI assistance has been used only for work in this fork, not in the original
+project.

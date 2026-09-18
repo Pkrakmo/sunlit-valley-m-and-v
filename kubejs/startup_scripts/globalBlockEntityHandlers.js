@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 // Priority: 1000
 const artMachineTickRate = 200;
 
@@ -827,7 +826,7 @@ global.onFill = (blockInfo, fluid, sim) => {
     } else if (storedFluidId === incomingFluidId) {
       blockInfo.persistentData.putInt("Fluid", fluidData + filled);
     } else {
-      return (filled = 0);
+      return 0;
     }
   }
   return filled;

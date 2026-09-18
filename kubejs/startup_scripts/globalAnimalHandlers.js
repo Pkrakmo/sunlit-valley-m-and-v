@@ -526,7 +526,7 @@ global.getPlushieModifiers = (level, data, plushieBlock) => {
         );
       }
       break;
-    case 1:
+    case 1: {
       // Woodsy
       let nearbyLogs = global.getTaggedBlocksInRadius(
         level,
@@ -544,6 +544,7 @@ global.getPlushieModifiers = (level, data, plushieBlock) => {
         );
       }
       break;
+    }
     case 2:
       // Eldritch
       newDrops.push(Item.of(`${qualityMult}x oreganized:raw_silver`));

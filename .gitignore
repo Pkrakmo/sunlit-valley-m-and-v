@@ -63,3 +63,5 @@ config/controllable-client.toml
 config/controllable/bindings.properties
 config/controllable/key_adapters.properties
 config/controllable/radial_menu_items.json
+pakku.jar
+CODEX/*

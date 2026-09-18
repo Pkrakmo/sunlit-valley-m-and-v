@@ -68,9 +68,9 @@ ItemEvents.entityInteracted("splendid_slimes:splendid_slime", (e) => {
           "supplementaries:present_pink",
           `{BlockEntityTag:{Description:"${
             Text.of(NBT.stringTag(`{"translate":"society.slime_ticket.favorite.entity", "fallback":"%s Slime's favorite mob to eat :pink_heart:", "with":[${translatedSlimeName.toJson()}]}`)).getString()
-          }",ForgeCaps:{},Items:[{Count:1b,Slot:0b,id:"minecraft:paper",tag:{display:{Name:\'${
+          }",ForgeCaps:{},Items:[{Count:1b,Slot:0b,id:"minecraft:paper",tag:{display:{Name:'${
             translatedEntityName
-          }\'}}}],Recipient:"${
+          }'}}}],Recipient:"${
             player.username
           }",Sender:"${presentSender}",id:"supplementaries:present"}}`
         )

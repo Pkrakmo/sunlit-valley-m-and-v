@@ -15,17 +15,14 @@ const relicTroveTable = [
     drop: "#society:relic_treasure",
     drop_chance: 0.9,
   },
-  ,
   {
     drop: "#society:relic_treasure",
     drop_chance: 0.9,
   },
-  ,
   {
     drop: "#society:relic_treasure",
     drop_chance: 0.9,
   },
-  ,
   {
     drop: "#society:relic_treasure",
     drop_chance: 0.9,

@@ -8,7 +8,7 @@ const dialogLengths = {
     librarian: { chatterLengths: [5.0, 5.0, 5.0, 5.0, 5.0, 6.0], giftResponseLengths: { loved: 5.0, liked: 5.0, neutral: 5.0, disliked: 5.0, hated: 5.0 } },
     market: { chatterLengths: [18.0, 14.0, 9.0, 16.0, 14.0, 14.0], giftResponseLengths: { loved: 10.0, liked: 8.0, neutral: 17.0, disliked: 12.0, hated: 13.0 } },
     shepherd: { chatterLengths: [15.0, 14.0, 13.0, 12.0, 14.0, 17.0], giftResponseLengths: { loved: 9.0, liked: 10.0, neutral: 8.0, disliked: 8.0, hated: 11.0 } },
-    trader: { chatterLengths: [7.0, 5.0, 5.0, 7.0, 7.0, 6.0], giftResponseLengths: { loved: 5.0, liked: 5.0, neutral: 5.0, disliked: 5.0, hated: 5.0 } },
+    trader: { chatterLengths: [7.0, 5.0, 5.0, 6.0, 7.0, 6.0], giftResponseLengths: { loved: 5.0, liked: 5.0, neutral: 5.0, disliked: 5.0, hated: 5.0 } },
     wise_oak: { chatterLengths: [7.0, 5.0, 5.0, 5.0, 5.0, 8.0], giftResponseLengths: { loved: 0.0, liked: 0.0, neutral: 0.0, disliked: 0.0, hated: 0.0 } },
     witch: { chatterLengths: [7.0, 5.0, 6.0, 8.0, 6.0, 5.0], giftResponseLengths: { loved: 5.0, liked: 5.0, neutral: 5.0, disliked: 5.0, hated: 6.0 } },
 }
