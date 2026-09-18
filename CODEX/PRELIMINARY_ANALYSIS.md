@@ -1,7 +1,7 @@
 # Preliminary repository analysis
 
-**Reviewed:** 2026-09-16
-**Repository:** `Pkrakmo/sunlit-valley-m-and-v` (current branch: `master`)
+**Initial review:** 2026-09-16
+**Repository:** `Pkrakmo/sunlit-valley-m-and-v`
 **Current pack version:** `4.1.5` (`pakku.json`)
 
 ## Executive summary
@@ -60,21 +60,20 @@ in-game regression testing, because they can affect many systems at once.
 - Pakku declares the pack version and separates shared overrides (`config`,
   `defaultconfigs`, `kubejs`, `patchouli_books`) from client overrides
   (`configureddefaults`, shaders, and the versioned resource pack).
-- `package.json` supplies ESLint dependencies only. Its `test` script is the
-  placeholder `"-"`; there is no automated test/build/export command defined.
-- `eslint.config.mjs` treats JavaScript as script-mode and disables `no-undef`,
-  which is appropriate for KubeJS globals but limits static typo detection.
-- The dependency lock currently contains only `curseforge` file records. As a
-  result, `scripts/pakkuAudit.js` reports every project as missing Modrinth.
-  That is a data/assumption mismatch, not necessarily 367 actionable package
-  problems. The script is useful only after the lock contains both platforms,
-  or after its audit objective is revised.
+- `package.json` provides `lint`, `pack-audit`, and `test` commands. The test
+  command runs ESLint and the Node-based Pakku-audit test suite.
+- `eslint.config.mjs` scopes KubeJS/Forge runtime-global exemptions to
+  `kubejs/**`, while Node tooling and tests retain normal undefined-variable
+  checks.
+- The lock contains CurseForge file records. `scripts/pakkuAudit.js` validates
+  the CurseForge target, project identities, URLs, and complete SHA-1 and MD5
+  digests; it intentionally does not require Modrinth parity.
 
 ## Initial risks and maintenance observations
 
-1. **No automated verification path is present.** The next practical addition
-   would be documented lint, pack export/validation, and a small smoke-test
-   checklist for loading a client and dedicated server.
+1. **Repository checks do not replace runtime validation.** Lint, lockfile
+   validation, and unit tests are available, but Pakku export and in-game
+   client/server smoke tests remain manual release gates.
 2. **Cross-layer changes are easy to incompletely implement.** A new custom
    object can require startup registration, recipe/tag rules, assets and
    localisation, JEI/tooltips, quests, and possibly default/server config.
@@ -86,34 +85,29 @@ in-game regression testing, because they can affect many systems at once.
    about 177 MB excluding Git history; it includes blueprint assets, audio,
    native controller files, and a zipped resource pack. Review binary changes
    separately from code/config changes when possible.
-5. **Documentation has upstream carry-over.** README and translation guidance
-   still direct contributors to the original `Chakyl/society-sunlit-valley`
-   project and state that original contributions using AI are denied. This
-   fork's README explicitly says AI has been used for the fork. Clarify local
-   contribution policy and issue/PR destinations if outside contributors are
-   expected.
-6. **Pack compatibility needs explicit confirmation.** The reviewed metadata
-   identifies a Forge/NeoForge-oriented mod set, but no authoritative
-   Minecraft-version/loader requirement was found in the top-level metadata.
-   Record this alongside Java and launcher/Pakku versions before upgrade work.
+5. **Local contribution policy should remain explicit.** The README now
+   distinguishes this fork from upstream; clarify local issue/PR ownership if
+   outside contributors are expected.
+6. **Compatibility requirements are documented.** Development documentation
+   records Minecraft 1.20.1, Forge 47.4.0, and Java 17; confirm these values
+   before any pack upgrade.
 
 ## Recommended next steps
 
-1. Add a short `DEVELOPMENT.md` that states the required Minecraft version,
-   loader, Java runtime, Pakku workflow, and client/server export process.
-2. Replace the placeholder npm test command with explicit lint and pack-audit
-   commands; document any intentional lint exemptions for KubeJS globals.
-3. Map the main KubeJS systems (economy, machines, farming, fishing, NPCs,
-   quests) to their primary scripts before a feature or balance pass.
-4. Decide whether Modrinth parity is a real delivery requirement. Then either
-   populate the required lock metadata or adjust/remove `pakkuAudit.js` so its
-   output is actionable.
-5. Establish a repeatable smoke-test matrix: clean client launch, server
-   launch, existing-world load, new-world load, quest sync, custom-machine
-   interactions, and recipe/JEI visibility.
+1. Run `pakku fetch` and `pakku export` from a clean managed dependency set
+   before release, then retain the resulting artifact evidence.
+2. Add automated checks for generated dialogue artifacts and locale key
+   alignment when NPC dialogue source definitions change.
+3. Use `KUBEJS_SYSTEMS.md` to identify related gameplay layers before a
+   feature or balance pass.
+4. Establish and record the release smoke-test matrix: clean client launch,
+   server launch, existing-world load, new-world load, quest sync,
+   custom-machine interactions, and recipe/JEI visibility.
 
 ## Scope and limitations
 
-This is a static preliminary assessment. It does not validate a Pakku export,
-download dependencies, launch Minecraft, or test in-game behavior. No tracked
-pack files were changed; this `CODEX` report is the only addition.
+This began as a static preliminary assessment. It does not validate a Pakku
+export, download dependencies, launch Minecraft, or test in-game behavior.
+Subsequent changes in this fork added documentation and repository-level
+validation; see `DEVELOPMENT.md` and `RELEASE_CHECKLIST.md` for current
+workflow and manual release gates.
