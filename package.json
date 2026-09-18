@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "pack-audit": "node scripts/pakkuAudit.js",
-    "test": "npm run lint && node --test test/**/*.test.js"
+    "test": "npm run lint && node --test test"
   },
   "repository": {
     "type": "git",
