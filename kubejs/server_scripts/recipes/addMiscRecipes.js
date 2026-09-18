@@ -616,7 +616,6 @@ ServerEvents.recipes((e) => {
   e.shaped("society:wine_keg", ["FoF", "IbI", "FfF"], {
     b: "minecraft:barrel",
     I: "minecraft:iron_block",
-    I: "minecraft:iron_block",
     f: "minecraft:quartz_block",
     o: "society:oak_resin",
     F: "meadow:fire_log",

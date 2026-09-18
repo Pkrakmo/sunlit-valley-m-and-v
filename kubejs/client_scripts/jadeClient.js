@@ -288,7 +288,9 @@ global["JadeSocietyCropClientCallback"] = (
       } else if (state.hasProperty(BlockProperties.AGE_3)) {
         addGrowthLevelTooltip(state.getValue(BlockProperties.AGE_3), 3, isCropFertile(name));
       } 
-    } catch (e) {}
+    } catch (e) {
+      // Some crop blocks do not expose an age property.
+    }
   } else if("minecraft:torchflower".equals(name)) {
     tooltip.add(Component.translatable("jade.society.crop_growth.mature").darkGreen());
   } else {

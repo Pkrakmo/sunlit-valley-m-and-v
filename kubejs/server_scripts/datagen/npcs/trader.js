@@ -35,7 +35,7 @@ if (global.datagenDialog) {
         "@i! What do I have the pleasure for today?",
         "Veronica is a tough one, I really struggle with talking to the quieter ones..."
       ],
-      friendship3: [,
+      friendship3: [
         ["I have no idea how Aiden stays in business with all these handouts.", "Keep people wanting! Or they'll never come back!"],
         "@i! Back at it again!",
         "I've heard a lot of stories, but nothing about Haruna's homeland, how strange.",

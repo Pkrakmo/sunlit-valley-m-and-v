@@ -36,7 +36,7 @@ if (global.datagenDialog) {
         "How can I help you today @i?",
       ],
       friendship2: [
-        ["♫ My life, my love and my lady... ♫", "\*Ahem\*...", "Yes?"],
+        ["♫ My life, my love and my lady... ♫", "*Ahem*...", "Yes?"],
         ["♫ Take me by the hand, lead me to the land... ♫", "Oh. Excuse me."],
         "Hello again @i.",
         "Good day @i.",

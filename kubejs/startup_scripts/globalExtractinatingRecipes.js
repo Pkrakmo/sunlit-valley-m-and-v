@@ -1,3 +1,5 @@
+// Empty entries intentionally weight the relic treasure entries in this table.
+/* eslint-disable no-sparse-arrays */
 const relicTroveTable = [
   {
     drop: "#society:relics",
@@ -31,6 +33,7 @@ const relicTroveTable = [
     drop_chance: 0.9,
   },
 ];
+/* eslint-enable no-sparse-arrays */
 
 const artifactTroveTable = [
   {
