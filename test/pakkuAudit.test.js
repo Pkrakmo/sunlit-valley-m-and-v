@@ -55,6 +55,19 @@ for (const [field, expectedError] of [
   });
 }
 
+for (const [hash, value, expectedError] of [
+  ["sha1", "a".repeat(39), /SHA-1 hash.*40-character hexadecimal/],
+  ["sha1", "g".repeat(40), /SHA-1 hash.*40-character hexadecimal/],
+  ["md5", "a".repeat(31), /MD5 hash.*32-character hexadecimal/],
+  ["md5", "g".repeat(32), /MD5 hash.*32-character hexadecimal/],
+]) {
+  test(`rejects an invalid CurseForge ${hash} hash`, () => {
+    const lock = validLock();
+    lock.projects[0].files[0].hashes[hash] = value;
+    assert.throws(() => validateLock(lock), expectedError);
+  });
+}
+
 test("rejects duplicate CurseForge project identities", () => {
   assert.throws(
     () => validateLock(readLockFile(fixture("duplicate-project-lock.json"))),

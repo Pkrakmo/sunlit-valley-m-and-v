@@ -17,6 +17,12 @@ function requireString(value, description) {
   }
 }
 
+function requireHash(value, description, length) {
+  if (typeof value !== "string" || !new RegExp(`^[a-fA-F0-9]{${length}}$`).test(value)) {
+    throw new PakkuAuditError(`${description} must be a ${length}-character hexadecimal string.`);
+  }
+}
+
 function requireStringArray(value, description) {
   if (!Array.isArray(value) || value.length === 0 || value.some((entry) => typeof entry !== "string" || entry.trim() === "")) {
     throw new PakkuAuditError(`${description} must be a non-empty array of strings.`);
@@ -46,8 +52,8 @@ function validateCurseForgeFile(file, projectIndex, fileIndex) {
     throw new PakkuAuditError(`${description} URL must be valid.`);
   }
   requireObject(file.hashes, `${description} hashes`);
-  requireString(file.hashes.sha1, `${description} SHA-1 hash`);
-  requireString(file.hashes.md5, `${description} MD5 hash`);
+  requireHash(file.hashes.sha1, `${description} SHA-1 hash`, 40);
+  requireHash(file.hashes.md5, `${description} MD5 hash`, 32);
 }
 
 function validateLock(lock) {

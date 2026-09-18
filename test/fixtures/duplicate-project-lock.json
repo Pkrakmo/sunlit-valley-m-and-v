@@ -7,13 +7,13 @@
       "slug": { "curseforge": "example-mod" },
       "name": { "curseforge": "Example Mod" },
       "id": { "curseforge": "12345" },
-      "files": [{ "type": "curseforge", "file_name": "example.jar", "url": "https://example.test/example.jar", "id": "1", "hashes": { "sha1": "a", "md5": "a" } }]
+      "files": [{ "type": "curseforge", "file_name": "example.jar", "url": "https://example.test/example.jar", "id": "1", "hashes": { "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "md5": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" } }]
     },
     {
       "slug": { "curseforge": "example-mod-copy" },
       "name": { "curseforge": "Example Mod Copy" },
       "id": { "curseforge": "12345" },
-      "files": [{ "type": "curseforge", "file_name": "example-copy.jar", "url": "https://example.test/example-copy.jar", "id": "2", "hashes": { "sha1": "b", "md5": "b" } }]
+      "files": [{ "type": "curseforge", "file_name": "example-copy.jar", "url": "https://example.test/example-copy.jar", "id": "2", "hashes": { "sha1": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "md5": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" } }]
     }
   ]
 }
