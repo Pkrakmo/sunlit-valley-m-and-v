@@ -86,29 +86,12 @@ global.getQuestItems = (block, level) => {
   if (attachedPlayer) {
     let radius = 10;
     let scanBlock;
-    let halfCost = attachedPlayer.stages.has("pond_house_five");
     for (let pos of BlockPos.betweenClosed(new BlockPos(x - radius, y - radius, z - radius),
       [x + radius, y + radius, z + radius])) {
       scanBlock = level.getBlock(pos);
       if (scanBlock.id === "society:fish_pond") {
-        let nbt = scanBlock.getEntityData();
-
-        if (!nbt || !nbt.data) continue;
-
-        let { type: fishType, max_population, quest_id } = nbt.data;
-        let { quest } = global.getPondProperties(scanBlock);
-
-        if (quest === "true" && global.fishPondDefinitions.get(`${fishType}`)) {
-          let questContent = getRequestedItems(fishType, Number(max_population))[quest_id];
-          if (!questContent) {
-            continue;
-          }
-          let checkedCount = halfCost ?
-            Math.round(questContent.count / 2) :
-            questContent.count;
-          let requestedItem = questContent.item;
-          requestedItems.push({ item: requestedItem, count: checkedCount });
-        }
+        const questContent = global.getFishPondQuestRequest(scanBlock, attachedPlayer);
+        if (questContent) requestedItems.push(questContent);
       }
     }
   }
@@ -121,11 +104,7 @@ global.getQuestItems = (block, level) => {
 
   const entries = [];
   groupedMap.forEach(function (count, item) {
-    const displayName = Item.of(item).displayName.string;
-    entries.push({
-      Checked: "0b",
-      Text: `{"text":"${count} x ${displayName}"}`,
-    });
+    entries.push(global.getFishPondClipboardEntry(item, count));
   });
 
   const pageSize = 6;
@@ -136,6 +115,92 @@ global.getQuestItems = (block, level) => {
 
   return pages;
 }
+
+global.getFishPondQuestRequest = (block, player) => {
+  const nbt = block.getEntityData();
+  if (!nbt || !nbt.data) return;
+
+  const { type: fishType, max_population, quest_id } = nbt.data;
+  const { quest } = global.getPondProperties(block);
+  const fishDefinition = global.fishPondDefinitions.get(`${fishType}`);
+  if (quest !== "true" || !fishDefinition) return;
+
+  const fishQuest = fishDefinition.quests.find(
+    (candidate) => Number(candidate.population) === Number(max_population)
+  );
+  if (!fishQuest || !fishQuest.requestedItems) return;
+  const request = fishQuest.requestedItems[Number(quest_id)];
+  if (!request) return;
+
+  return {
+    item: request.item,
+    count: player.stages.has("pond_house_five") ?
+      Math.round(request.count / 2) :
+      request.count,
+  };
+};
+
+global.getFishPondClipboardEntry = (itemId, count) => {
+  const item = Item.of(itemId);
+  const namespace = item.id.split(":")[0];
+  let modName = namespace;
+  const mod = Platform.getMods()[namespace];
+  if (mod) modName = mod.name;
+
+  return {
+    Checked: "0b",
+    Count: count,
+    Item: item.id,
+    Text: JSON.stringify({ text: `${count} x ${item.displayName.string} (${modName})` }),
+  };
+};
+
+global.appendFishPondRequestsToClipboard = (clipboard, requests) => {
+  const clipboardNbt = clipboard.nbt || {};
+  const pages = [];
+  const recordedItemIds = new Set();
+
+  if (clipboardNbt.Pages) {
+    let storedPages = clipboardNbt.Pages;
+    for (let pageIndex = 0; pageIndex < storedPages.size(); pageIndex++) {
+      let storedPage = storedPages.get(pageIndex);
+      let entries = [];
+      if (storedPage.Entries) {
+        let storedEntries = storedPage.Entries;
+        for (let entryIndex = 0; entryIndex < storedEntries.size(); entryIndex++) {
+          entries.push(storedEntries.get(entryIndex));
+        }
+      }
+      pages.push({ Entries: entries });
+    }
+  }
+
+  for (const page of pages) {
+    if (!page.Entries) continue;
+    for (const entry of page.Entries) {
+      if (entry.Item) recordedItemIds.add(String(entry.Item));
+    }
+  }
+
+  for (const request of requests) {
+    const itemId = Item.of(request.item).id;
+    if (recordedItemIds.has(itemId)) continue;
+
+    let page = pages[pages.length - 1];
+    if (!page || !page.Entries || page.Entries.length >= 6) {
+      page = { Entries: [] };
+      pages.push(page);
+    }
+
+    page.Entries.push(global.getFishPondClipboardEntry(itemId, request.count));
+    recordedItemIds.add(itemId);
+  }
+
+  clipboardNbt.Type = 1;
+  clipboardNbt.PreviouslyOpenedPage = 0;
+  clipboardNbt.Pages = pages;
+  clipboard.nbt = clipboardNbt;
+};
 
 global.runFishPondQuestManager = (entity) => {
   const { block, level } = entity;

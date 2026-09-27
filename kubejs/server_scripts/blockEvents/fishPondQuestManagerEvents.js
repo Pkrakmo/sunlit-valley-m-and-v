@@ -4,10 +4,13 @@ BlockEvents.rightClicked("society:fish_pond_manager", (e) => {
   global.addItemCooldown(player, item, 10);
   player.swing();
   const pages = global.getQuestItems(block, level);
-  item.nbt = {
-    Type: 1,
-    PreviouslyOpenedPage: 0,
-    Pages: pages,
-  };
+  if (!pages) return;
+  const requests = [];
+  for (const page of pages) {
+    for (const entry of page.Entries) {
+      requests.push({ item: entry.Item, count: Number(entry.Count) });
+    }
+  }
+  global.appendFishPondRequestsToClipboard(item, requests);
   e.cancel();
 });

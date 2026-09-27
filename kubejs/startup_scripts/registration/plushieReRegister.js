@@ -22,6 +22,20 @@ global.plushieRightClick = (click) => {
       })
     }
     if (!animal) {
+      if (item === "create:clipboard" && quest_id > 0) {
+        let questList = Ingredient.of(global.plushieTraits[type].tag).itemIds;
+        let questOffset = 3;
+        if (questList.length < 12) questOffset = 2;
+        if (questList.length > 36) questOffset = 6;
+        let questItem = questList[affection * questOffset + Number(quest_id) - 1];
+
+        if (questItem) {
+          global.addItemCooldown(player, item, 10);
+          global.appendFishPondRequestsToClipboard(item, [{ item: questItem, count: 1 }]);
+          player.swing();
+          return;
+        }
+      }
       if (
         player.stages.has("women_who_run_with_the_plushies") &&
         affection < 2
