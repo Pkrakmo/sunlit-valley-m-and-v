@@ -158,7 +158,7 @@ global.getFishPondClipboardEntry = (itemId, count) => {
 global.appendFishPondRequestsToClipboard = (clipboard, requests) => {
   const clipboardNbt = clipboard.nbt || {};
   const pages = [];
-  const recordedItemIds = new Set();
+  const recordedEntries = new Map();
 
   if (clipboardNbt.Pages) {
     let storedPages = clipboardNbt.Pages;
@@ -179,14 +179,27 @@ global.appendFishPondRequestsToClipboard = (clipboard, requests) => {
   // remain untouched, so the first post-upgrade request may duplicate one.
   for (const page of pages) {
     if (!page.Entries) continue;
-    for (const entry of page.Entries) {
-      if (entry.Item) recordedItemIds.add(String(entry.Item));
+    for (let entryIndex = 0; entryIndex < page.Entries.length; entryIndex++) {
+      const entry = page.Entries[entryIndex];
+      if (entry.Item) {
+        recordedEntries.set(String(entry.Item), { page, entryIndex, entry });
+      }
     }
   }
 
   for (const request of requests) {
     const itemId = Item.of(request.item).id;
-    if (recordedItemIds.has(itemId)) continue;
+    const recordedEntry = recordedEntries.get(itemId);
+    if (recordedEntry) {
+      const refreshedEntry = global.getFishPondClipboardEntry(
+        itemId,
+        request.count
+      );
+      refreshedEntry.Checked = recordedEntry.entry.Checked;
+      recordedEntry.page.Entries[recordedEntry.entryIndex] = refreshedEntry;
+      recordedEntry.entry = refreshedEntry;
+      continue;
+    }
 
     let page = pages[pages.length - 1];
     if (!page || !page.Entries || page.Entries.length >= 6) {
@@ -195,7 +208,11 @@ global.appendFishPondRequestsToClipboard = (clipboard, requests) => {
     }
 
     page.Entries.push(global.getFishPondClipboardEntry(itemId, request.count));
-    recordedItemIds.add(itemId);
+    recordedEntries.set(itemId, {
+      page,
+      entryIndex: page.Entries.length - 1,
+      entry: page.Entries[page.Entries.length - 1],
+    });
   }
 
   clipboardNbt.Type = 1;
