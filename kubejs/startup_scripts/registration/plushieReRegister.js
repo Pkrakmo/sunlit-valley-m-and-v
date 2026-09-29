@@ -22,7 +22,7 @@ global.plushieRightClick = (click) => {
       })
     }
     if (!animal) {
-      if (item === "create:clipboard" && quest_id > 0) {
+      if (item.id === "create:clipboard" && quest_id > 0) {
         let questList = Ingredient.of(global.plushieTraits[type].tag).itemIds;
         let questOffset = 3;
         if (questList.length < 12) questOffset = 2;

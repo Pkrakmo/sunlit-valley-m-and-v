@@ -175,6 +175,8 @@ global.appendFishPondRequestsToClipboard = (clipboard, requests) => {
     }
   }
 
+  // Only entries created by this feature carry Item. Legacy text-only entries
+  // remain untouched, so the first post-upgrade request may duplicate one.
   for (const page of pages) {
     if (!page.Entries) continue;
     for (const entry of page.Entries) {
