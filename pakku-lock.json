@@ -8209,7 +8209,7 @@
             "files": [
                 {
                     "type": "curseforge",
-                    "file_name": "NaturesCompass-1.20.1-1.11.2-forge.jar",
+                    "file_name": "NaturesCompass-1.20.1-1.12.0-forge.jar",
                     "mc_versions": [
                         "1.20.1"
                     ],
@@ -8217,16 +8217,16 @@
                         "forge"
                     ],
                     "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/4712/189/NaturesCompass-1.20.1-1.11.2-forge.jar",
-                    "id": "4712189",
+                    "url": "https://edge.forgecdn.net/files/7892/948/NaturesCompass-1.20.1-1.12.0-forge.jar",
+                    "id": "7892948",
                     "parent_id": "252848",
                     "hashes": {
-                        "sha1": "31ae930cdbb34e8e05e1954cfb2fee3a3813e850",
-                        "md5": "7c05072645b1aae529b1e38c74b87c4c"
+                        "sha1": "a8589de59cdd8fed9c29610e624063a2990e422b",
+                        "md5": "cd6c3480c519bc6d5f7532bc5c21820b"
                     },
                     "required_dependencies": [],
-                    "size": 215119,
-                    "date_published": "2023-08-19T13:57:24.937Z"
+                    "size": 227495,
+                    "date_published": "2026-04-08T01:37:54.440Z"
                 }
             ]
         },

@@ -5,6 +5,7 @@
 --- 
 - Use a Create Clipboard on a Fish Pond, Fish Pond Manager, or Plushie to list
   the items needed for active quests.
+- Update Natures Compass: Adds backported feature to search for the next instance of an already located biome
 
 ## v4.1.5A
 - Added Sale Points and Sub-Accounts from Create Numismatics update

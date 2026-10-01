@@ -1,6 +1,6 @@
 # Sunlit Valley 1 M&V Edition
 
-This is a personal, friend-focused modification of **Society: Sunlit Valley**,
+This is a personal, friend-focused modification of **[Society: Sunlit Valley](https://www.curseforge.com/minecraft/modpacks/society-sunlit-valley)**,
 a farming-and-commerce Minecraft modpack inspired by Stardew Valley and Harvest
 Moon. Progress through the pack by earning coins, purchasing items, upgrading
 gear, and unlocking tools that improve your farm and business.
