@@ -16,6 +16,8 @@ export default [
       "no-undef": "off",
       // Event callbacks are invoked by KubeJS/Forge with a fixed argument list.
       "no-unused-vars": "off",
+      // The bundled Rhino runtime rejects ES6 object-property shorthand.
+      "object-shorthand": ["error", "never"],
     },
   },
 ];

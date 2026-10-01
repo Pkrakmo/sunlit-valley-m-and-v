@@ -125,11 +125,11 @@ BlockEvents.rightClicked("society:fish_pond", (e) => {
   const { item, hand, block, server, player } = e;
   if (hand == "OFF_HAND") return;
   if (item.id === "create:clipboard") {
-    let pondClipboardRequest = global.getFishPondQuestRequest(block, player);
+    let pondClipboardRequest = global.getActiveFishPondQuestRequest(block, player);
     if (!pondClipboardRequest) return;
 
     global.addItemCooldown(player, item, 10);
-    global.appendFishPondRequestsToClipboard(item, [pondClipboardRequest]);
+    global.appendQuestRequestsToClipboard(item, [pondClipboardRequest]);
     player.swing();
     e.cancel();
     return;

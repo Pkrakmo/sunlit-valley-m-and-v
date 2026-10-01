@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "pack-audit": "node scripts/pakkuAudit.js",
+    "sync:kubejs": "node scripts/syncKubejsToInstance.js",
     "test": "npm run lint && node --test test"
   },
   "repository": {

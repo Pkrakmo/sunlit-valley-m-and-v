@@ -48,3 +48,33 @@ for every locked CurseForge file. Modrinth parity is not a delivery requirement
 and is neither checked nor reported. See [KUBEJS_SYSTEMS.md](KUBEJS_SYSTEMS.md)
 for feature ownership and [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) for the
 release smoke-test gate.
+
+## Test-instance KubeJS sync
+
+To mirror this repository's pack-owned `kubejs/` content to a stopped local
+Minecraft instance, first review the dry run, then repeat with `--apply`:
+
+```bash
+npm run sync:kubejs -- --target /path/to/minecraft/kubejs
+npm run sync:kubejs -- --target /path/to/minecraft/kubejs --apply
+```
+
+The sync replaces pack-owned files and removes stale pack-owned top-level
+entries. It preserves KubeJS runtime directories named `exported`, `local`, and
+`logs`. Restart Minecraft afterward because startup script changes require it.
+
+## KubeJS/Rhino compatibility
+
+KubeJS 6 in this pack runs its scripts with the bundled Rhino engine, not
+Node.js. Write KubeJS code for that runtime even when Node-based linting accepts
+newer JavaScript syntax:
+
+- Use explicit object properties (`{ item: item }`), never property shorthand
+  (`{ item }`).
+- In callbacks invoked repeatedly by KubeJS (for example block right-click
+  handlers), avoid block-scoped `const` declarations for temporary values.
+  Prefer a uniquely named `var` when Rhino must create the value inside a
+  conditional branch.
+- Run `npm run lint` before syncing, then fully restart Minecraft and check the
+  KubeJS startup log. A successful Node lint run is not a substitute for Rhino
+  loading the script.

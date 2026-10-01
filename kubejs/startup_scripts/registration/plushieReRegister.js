@@ -30,7 +30,7 @@ global.plushieRightClick = (click) => {
         affection = 2;
         nbt.merge({
           data: {
-            affection,
+            affection: affection,
           },
         });
         global.setBlockEntityData(block, nbt)
@@ -48,15 +48,15 @@ global.plushieRightClick = (click) => {
         );
       }
       if (item.id === "create:clipboard" && quest_id > 0) {
-        let questList = Ingredient.of(global.plushieTraits[type].tag).itemIds;
-        let questOffset = 3;
-        if (questList.length < 12) questOffset = 2;
-        if (questList.length > 36) questOffset = 6;
-        let questItem = questList[affection * questOffset + Number(quest_id) - 1];
+        var clipboardQuestRequest = global.getActivePlushieQuestRequest(
+          type,
+          affection,
+          quest_id
+        );
 
-        if (questItem) {
+        if (clipboardQuestRequest) {
           global.addItemCooldown(player, item, 10);
-          global.appendFishPondRequestsToClipboard(item, [{ item: questItem, count: 1 }]);
+          global.appendQuestRequestsToClipboard(item, [clipboardQuestRequest]);
           player.swing();
           return;
         }
