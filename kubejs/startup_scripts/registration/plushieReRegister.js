@@ -4,7 +4,8 @@ global.plushieRightClick = (click) => {
   const { item, block, player, level, server, hand } = click;
   const { x, y, z } = block;
   let nbt = block.getEntityData();
-  const { type, quest_id, affection, animal } = nbt.data;
+  const { type, quest_id, animal } = nbt.data;
+  let affection = nbt.data.affection;
 
   if (player.isFake()) return;
   if (hand == "OFF_HAND") return;
@@ -26,9 +27,10 @@ global.plushieRightClick = (click) => {
         player.stages.has("women_who_run_with_the_plushies") &&
         affection < 2
       ) {
+        affection = 2;
         nbt.merge({
           data: {
-            affection: 2,
+            affection: affection,
           },
         });
         global.setBlockEntityData(block, nbt)
@@ -44,6 +46,20 @@ global.plushieRightClick = (click) => {
           10,
           0.1
         );
+      }
+      if (item.id === "create:clipboard" && quest_id > 0) {
+        var clipboardQuestRequest = global.getActivePlushieQuestRequest(
+          type,
+          affection,
+          quest_id
+        );
+
+        if (clipboardQuestRequest) {
+          global.addItemCooldown(player, item, 10);
+          global.appendQuestRequestsToClipboard(item, [clipboardQuestRequest]);
+          player.swing();
+          return;
+        }
       }
       if (quest_id > 0) {
         let questList = Ingredient.of(global.plushieTraits[type].tag).itemIds;

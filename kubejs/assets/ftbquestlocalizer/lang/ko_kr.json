@@ -1657,5 +1657,9 @@
   "ftbquests.loot_table.8298743981735202683.title": "포도 씨앗",
   "ftbquests.loot_table.8921602476353446055.title": "주민 주택 - 상인",
   "ftbquests.loot_table.9002246533416223198.title": "장인 설비",
-  "ftbquests.loot_table.9032317954688779283.title": "주민 주택 - 사서"
+  "ftbquests.loot_table.9032317954688779283.title": "주민 주택 - 사서",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.description1": "Hold a Create Clipboard and right-click a Fish Pond to add its current request.",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.description2": "The clipboard keeps existing notes and skips duplicate item types. Right-click a Fish Pond Manager to add requests from nearby ponds.",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.task.65BB8ECF52B3728A.title": "Got it!",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.title": "Fish Pond Requests"
 }

@@ -1531,5 +1531,9 @@
   "ftbquests.loot_table_4698371000991631378.title": "Fertilizer",
   "ftbquests.loot_table_6097669691163803424.title": "Machine Upgrade",
   "ftbquests.loot_table_8298743981735202683.title": "Grape Seed",
-  "ftbquests.loot_table_9002246533416223198.title": "Artisan Machine"
+  "ftbquests.loot_table_9002246533416223198.title": "Artisan Machine",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.description1": "Hold a Create Clipboard and right-click a Fish Pond to add its current request.",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.description2": "The clipboard keeps existing notes and skips duplicate item types. Right-click a Fish Pond Manager to add requests from nearby ponds.",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.task.65BB8ECF52B3728A.title": "Got it!",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.title": "Fish Pond Requests"
 }

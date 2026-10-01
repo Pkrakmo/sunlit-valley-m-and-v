@@ -1247,6 +1247,25 @@
 			y: -7.0d
 		}
 		{
+			dependencies: ["6FE9F992ACD90629"]
+			description: [
+				"{ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.description1}"
+				""
+				"{ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.description2}"
+			]
+			hide_until_deps_complete: true
+			icon: "create:clipboard"
+			id: "3C6424E6F6992B15"
+			tasks: [{
+				id: "65BB8ECF52B3728A"
+				title: "{ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.task.65BB8ECF52B3728A.title}"
+				type: "checkmark"
+			}]
+			title: "{ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.title}"
+			x: 11.0d
+			y: -5.5d
+		}
+		{
 			dependencies: ["7B2EB2B56F155E49"]
 			description: ["{ftbquests.chapter.ii__building_up_the_farm.quest55FAFBCDEDDA41A5.description1}"]
 			hide_until_deps_complete: true

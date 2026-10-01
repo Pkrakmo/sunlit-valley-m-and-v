@@ -1657,5 +1657,9 @@
   "ftbquests.loot_table.8298743981735202683.title": "Grape Seed",
   "ftbquests.loot_table.8921602476353446055.title": "Villager Home - Trader",
   "ftbquests.loot_table.9002246533416223198.title": "Artisan Machine",
-  "ftbquests.loot_table.9032317954688779283.title": "Villager Home - Librarian"
+  "ftbquests.loot_table.9032317954688779283.title": "Villager Home - Librarian",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.description1": "Hold a Create Clipboard and right-click a Fish Pond to add its current request.",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.description2": "The clipboard keeps existing notes and skips duplicate item types. Right-click a Fish Pond Manager to add requests from nearby ponds.",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.task.65BB8ECF52B3728A.title": "Got it!",
+  "ftbquests.chapter.ii__building_up_the_farm.quest3C6424E6F6992B15.title": "Fish Pond Requests"
 }

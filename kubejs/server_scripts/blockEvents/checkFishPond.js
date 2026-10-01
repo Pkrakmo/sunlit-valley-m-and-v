@@ -124,6 +124,16 @@ const sendFishPondMessage = (clickEvent, type, population, maxPopulation) => {
 BlockEvents.rightClicked("society:fish_pond", (e) => {
   const { item, hand, block, server, player } = e;
   if (hand == "OFF_HAND") return;
+  if (item.id === "create:clipboard") {
+    let pondClipboardRequest = global.getActiveFishPondQuestRequest(block, player);
+    if (!pondClipboardRequest) return;
+
+    global.addItemCooldown(player, item, 10);
+    global.appendQuestRequestsToClipboard(item, [pondClipboardRequest]);
+    player.swing();
+    e.cancel();
+    return;
+  }
   if (!player.isCrouching()) {
     let { type, population, max_population, quest_id } =
       block.getEntityData().data;
