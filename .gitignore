@@ -1,4 +1,7 @@
 node_modules/
+.env
+.env.*
+!.env.example
 backups/
 blueprints/
 portable_blueprints/tablet_data
