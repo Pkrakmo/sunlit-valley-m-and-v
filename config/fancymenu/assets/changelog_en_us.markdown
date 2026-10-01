@@ -1,12 +1,10 @@
 ^^^
-## Cozy Cafe
-## v0.0.1
+## The story continues
+## v4.1.5A-mv.1.0.0
 ^^^
 --- 
 - Use a Create Clipboard on a Fish Pond, Fish Pond Manager, or Plushie to list
   the items needed for active quests.
-- Clipboard quest notes refresh safely instead of adding duplicate entries.
-
 
 ## v4.1.5A
 - Added Sale Points and Sub-Accounts from Create Numismatics update

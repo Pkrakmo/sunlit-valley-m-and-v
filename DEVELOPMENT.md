@@ -34,6 +34,21 @@ and the server-pack ZIP under `build/`. Server-side projects are intentionally
 included in client exports (`export_server_side_projects_to_client` is enabled
 in `pakku.json`), so do not remove them from the client artifact.
 
+## Release versioning
+
+Sunlit Valley 1 M&V Edition preserves the 4.1.5A gameplay baseline. Use the
+release format `4.1.5A-mv.major.minor.patch`, where `mv` identifies this fork:
+
+- Increment `major` for an M&V maintenance milestone.
+- Increment `minor` for a backward-compatible QoL addition.
+- Increment `patch` for a bug fix.
+
+For each release, keep the version identical in `pakku.json` and
+`config/bcc-common.toml`, then add an English entry headed
+`v4.1.5A-mv.major.minor.patch` to
+`config/fancymenu/assets/changelog_en_us.markdown`. Do not change the
+translated changelogs unless a translation is explicitly being provided.
+
 ## Checks
 
 ```bash
