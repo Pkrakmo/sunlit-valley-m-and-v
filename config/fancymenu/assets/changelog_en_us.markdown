@@ -1,8 +1,14 @@
 ^^^
 ## Cozy Cafe
-### v4.1.5A
+## v0.0.1
 ^^^
 --- 
+- Use a Create Clipboard on a Fish Pond, Fish Pond Manager, or Plushie to list
+  the items needed for active quests.
+- Clipboard quest notes refresh safely instead of adding duplicate entries.
+
+
+## v4.1.5A
 - Added Sale Points and Sub-Accounts from Create Numismatics update
 - Added number truncation to Coin Leaderboards
 - Removed purchase for Overflow Tokens as the Numismatics Team fixed the overflow bug! Tokens are still usable
